@@ -12,7 +12,7 @@
 
 <div class="featured-collection-slider">
     {% if section.settings.title != blank %}
-    <div class="section-header text-center">
+    <div class="section-headerh text-center">
       <h2>{{ section.settings.title | escape }}</h2>
     </div>
     {% endif %}
@@ -20,7 +20,7 @@
     {%- assign collection = collections[section.settings.collection] -%}
     {%- assign product_limit = section.settings.product_count -%}
      
- 	<div class="products-carousel js-flickity" data-flickity='{{ flickity_options }}'>
+ 	<div class="products-carousel js-flickityh" data-flickity='{{ flickity_options }}'>
       {% for product in collection.products limit: product_limit %}
       <div class="carousel-card">
         <a class="products-carousel-image" href="{{ product.url | within: collection }}">
