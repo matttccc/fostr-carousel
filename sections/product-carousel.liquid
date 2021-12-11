@@ -1,3 +1,7 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+
 {%- capture flickity_options -%}
 {
   "prevNextButtons": true,
@@ -8,10 +12,6 @@
   "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
 }
 {%- endcapture -%}
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
 
 <div class="featured-collection-slider">
 	{% if section.settings.title != blank %}
@@ -53,6 +53,7 @@
 <style>
   
     .featured-collection-slider {
+      	font-family: 'Open Sans', sans-serif;
         padding-left: 24px;
         padding-right: 24px;
         margin: 128px auto;
