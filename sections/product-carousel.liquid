@@ -20,17 +20,24 @@
     {%- assign collection = collections[section.settings.collection] -%}
     {%- assign product_limit = section.settings.product_count -%}
      
-        <div class="products-carousel js-flickity" data-flickity='{{ flickity_options }}'>
-          {% for product in collection.products limit: product_limit %}
-            <div class="carousel-cell">
-              <a href="{{ product.url | within: collection }}">
-                <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}">
-                <h4>{{ product.title }}</h4>
-                <p>{{ product.price | money }}</p>
-              </a>
-          </div>  
-        {% endfor %}
-        </div>
+ 	<div class="products-carousel js-flickity" data-flickity='{{ flickity_options }}'>
+      {% for product in collection.products limit: product_limit %}
+      <div class="carousel-cell">
+        <a href="{{ product.url | within: collection }}">
+          <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}">
+        </a>
+        <a href="{{ product.url | within: collection }}">
+          <h4>{{ product.title }}</h4>
+        </a>
+        <p>{{ product.price | money }}</p>
+        <form method="post" action="/cart/add">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+          <input min="1" type="number" id="quantity" name="quantity" value="1"/>
+          <input type="submit" value="Add to cart" class="btn" />
+        </form>
+      </div>  
+      {% endfor %}
+  	</div>
     </div>
     
 
