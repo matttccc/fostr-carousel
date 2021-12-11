@@ -26,7 +26,7 @@
   	<div class="carousel-wrapper js-flickity" data-flickity='{{ flickity_options }}'>
     	{% for product in collection.products limit: product_limit %}
     	<div class="carousel-card">
-            <a class="product-image-link" href="{{ product.url | within: collection }}">
+            <a class="product-image-wrapper" href="{{ product.url | within: collection }}">
                 {% if product.available and product.tags contains 'new' %}
                 <div class="product-badge new"><span>New</span></div>
                 {% endif %}
@@ -80,6 +80,11 @@
     .product-carousel .flickity-prev-next-button {
         top: 220px;
     }
+    .product-carousel .product-image-wrapper {
+        display: block;
+        aspect-ratio: 3/4;
+        background: #eeeeee;
+    }
     .product-carousel .carousel-card img {
         max-width: 100%;
     }
@@ -110,11 +115,6 @@
     }
     .flickity-button:disabled {
         pointer-events: all!important;
-    }
-    .products-carousel-image {
-        display: block;
-        aspect-ratio: 3/4;
-        background: #eeeeee;
     }
 
 
