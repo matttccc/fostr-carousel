@@ -27,7 +27,9 @@
           {% if product.available and product.tags contains 'new' %}
               <div class="product-badge new"><span>New</span></div>
           {% endif %}
-          <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}">
+          {% unless product.metafields.global.featured == blank %}
+          <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}"  alt="{{ product.title | escape }}">
+          {% endunless %}
         </a>
         <a href="{{ product.url | within: collection }}">
           <h4>{{ product.title }}</h4>
