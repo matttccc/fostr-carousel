@@ -50,6 +50,10 @@
           padding-right: 55px;
           margin: 0 auto;
         }
+        .featured-collection-slider *,
+        .featured-collection-slider *:focus {
+            outline: none !important;
+        }
         .featured-collection-slider .carousel-card{
           width:25%;
           padding: 0 15px;
@@ -63,12 +67,12 @@
         .flickity-button:disabled{
           pointer-events: all!important;
         }
-      .flickity-enabled:focus {
-          outline: none;
-      }
-      *:focus{
-      outline:none;
-      } 
+        .flickity-enabled:focus {
+            outline: none !important;
+        }
+        *:focus{
+        outline:none;
+        } 
         @media screen and (max-width: 920px){
           .featured-collection-slider{
             padding-left: 15px;
