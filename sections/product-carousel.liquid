@@ -28,7 +28,7 @@
         </a>
         <a href="{{ product.url | within: collection }}">
           <h4>{{ product.title }}</h4>
-          <p>{{ product.description | truncate: 80 }}</p>
+          <p>{{ product.description | truncate: 95 }}</p>
         </a>
         <p>{{ product.price | money }}</p>
         <form method="post" action="/cart/add">
