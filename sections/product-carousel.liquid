@@ -38,7 +38,7 @@
                 <h4>{{ product.title }}</h4>
             </a>
             <p>{{ product.description | truncate: 120 }}</p>
-            <div class="price">
+            <div class="card-price">
                 <p>{{ product.price | money }} <span>{% if product.price <= product.compare_at_price %} {{ product.compare_at_price | money }}{% endif %}</span></p>
             </div>
             <form method="post" action="/cart/add">
@@ -104,7 +104,7 @@
       	letter-spacing: 0.29px;
       	margin: 12px 0;
     }
-    .featured-collection-slider .carousel-card .price {
+    .featured-collection-slider .carousel-card .card-price {
       	margin: 0 0 12px;
     }
     .flickity-button:disabled {
