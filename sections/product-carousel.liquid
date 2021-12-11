@@ -163,14 +163,15 @@
       	line-height: 1.25;
       	font-weight: 600;
       	-webkit-appearance: none;
-      	width: calc(100% - 3px);
+      	width: calc(100% - 2px);
       	padding: 15px 0 14px;
       	color: #111111;
      	letter-spacing: -0.17px;
-      	border: 1.5px solid #111111;
+      	border: 1px solid #111111;
       	background: #ffffff;
       	position: relative;
       	transition: all 0.15s ease-out;
+      	cursor: pointer;
     }
     .product-carousel .product-add-to-cart:hover {
       	color: #ffffff;
@@ -179,20 +180,20 @@
     .product-carousel .product-add-to-cart:before,
     .product-carousel .product-add-to-cart:after  {
       	content: '';
-      	width: 1.5px;
+      	width: 1px;
       	height: 100%;
       	position: absolute;
-      	top: 4.5px;
-        right: -4.5px;
+      	top: 3px;
+        right: -3px;
       	background: #111111;
     }
     .product-carousel .product-add-to-cart:after {
       	width: 100%;
-      	height: 1.5px;
+      	height: 1px;
       	top: auto;
-      	bottom: -4.5px;
+      	bottom: -3px;
       	right: auto;
-        left: 4.5px;
+        left: 3px;
     }
 
 
