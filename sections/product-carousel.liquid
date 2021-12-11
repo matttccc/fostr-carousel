@@ -38,7 +38,7 @@
                 <h4>{{ product.title }}</h4>
             </a>
             <p>{{ product.description | truncate: 120 }}</p>
-            <h5 class="product-price">{{ product.price | money }} <span>{% if product.price <= product.compare_at_price %} {{ product.compare_at_price | money }}{% endif %}</span></h5>
+            <h5 class="product-price">{{ product.price | money }}<span>{% if product.price <= product.compare_at_price %} {{ product.compare_at_price | money }}{% endif %}</span></h5>
             <form method="post" action="/cart/add">
                 <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
                 <input type="submit" value="Add to bag" class="product-add-to-cart" />
@@ -124,13 +124,16 @@
       	font-weight: 400;
       	color: #888888;
       	position: relative;
+     	margin-left: 4px;
     }
     .product-carousel .product-card h5 span:after {
       	content: '';
       	width: 100%;
       	height: 1px;
       	position: absolute;
-      	top: 10px;
+      	top: 9px;
+        left: 0;
+      	background: #888888;
     }
 
 
