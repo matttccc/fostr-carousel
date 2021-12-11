@@ -28,11 +28,12 @@
         </a>
         <a href="{{ product.url | within: collection }}">
           <h4>{{ product.title }}</h4>
+          <p>{{ product.description }}</p>
         </a>
         <p>{{ product.price | money }}</p>
         <form method="post" action="/cart/add">
           <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-          <input type="submit" value="Add to cart" class="btn" />
+          <input type="submit" value="Add to bag" class="btn" />
         </form>
       </div>  
       {% endfor %}
