@@ -23,7 +23,7 @@
  	<div class="products-carousel js-flickity" data-flickity='{{ flickity_options }}'>
       {% for product in collection.products limit: product_limit %}
       <div class="carousel-card">
-        <a class="products-carousel-image href="{{ product.url | within: collection }}">
+        <a class="products-carousel-image" href="{{ product.url | within: collection }}">
           <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}">
         </a>
         <a href="{{ product.url | within: collection }}">
@@ -46,12 +46,12 @@
           padding-right: 55px;
           margin: 0 auto;
         }
-        .featured-collection-slider .carousel-cell{
+        .featured-collection-slider .carousel-card{
           width:25%;
           padding: 0 15px;
           display: block;
         }
-        .featured-collection-slider .carousel-cell img {
+        .featured-collection-slider .carousel-card img {
             max-width: 100%;
         }
         .flickity-button:disabled{
