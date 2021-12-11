@@ -41,7 +41,7 @@
             <h5 class="product-price">{{ product.price | money }}<span>{% if product.price <= product.compare_at_price %} {{ product.compare_at_price | money }}{% endif %}</span></h5>
             <form method="post" action="/cart/add">
                 <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-              <button type="submit" class="product-add-to-cart">Add to Bag</button>
+              	<button type="submit" class="product-add-to-cart">Add to Bag</button>
             </form>
     	</div>  
     	{% endfor %}
@@ -146,6 +146,7 @@
      	letter-spacing: -0.17px;
       	border: 1px solid #111111;
       	background: #ffffff;
+      	position: relative;
     }
     .product-carousel .product-add-to-cart:after {
       	content: '';
