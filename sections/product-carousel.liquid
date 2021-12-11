@@ -50,6 +50,9 @@
           padding-right: 55px;
           margin: 0 auto;
         }
+        .featured-collection-slider *,
+        .featured-collection-slider *:focus {
+        }
         .featured-collection-slider .carousel-card{
           width:25%;
           padding: 0 15px;
@@ -64,7 +67,9 @@
           pointer-events: all!important;
         }
         .flickity-enabled:focus {
+            outline: none !important;
             box-shadow: none !important;
+            border: none !important;
         }
         @media screen and (max-width: 920px){
           .featured-collection-slider{
