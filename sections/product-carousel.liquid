@@ -28,7 +28,7 @@
         </a>
         <a href="{{ product.url | within: collection }}">
           <h4>{{ product.title }}</h4>
-          <p>{{ product.description }}</p>
+          <p>{{ product.description | truncate: 100 }}</p>
         </a>
         <p>{{ product.price | money }}</p>
         <form method="post" action="/cart/add">
@@ -56,10 +56,6 @@
             max-width: 100%;
         }
         .featured-collection-slider .carousel-card p {
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
         }
         .flickity-button:disabled{
           pointer-events: all!important;
