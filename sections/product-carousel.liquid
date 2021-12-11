@@ -160,19 +160,21 @@
     .product-carousel .product-add-to-cart {
       	font-family: 'Open Sans', sans-serif;
       	font-size: 14px;
-      	line-height: 14px;
+      	line-height: 1.25;
       	font-weight: 600;
       	-webkit-appearance: none;
-      	width: 100%;
+      	width: calc(100% - 3px);
       	padding: 15px 0 14px;
       	color: #111111;
      	letter-spacing: -0.17px;
       	border: 1.5px solid #111111;
       	background: #ffffff;
       	position: relative;
+      	transition: all 0.15s ease-out;
     }
-    .product-carousel:last-child .product-add-to-cart {
-      	width: calc(100% - 3px);
+    .product-carousel .product-add-to-cart:hover {
+      	color: #ffffff;
+      	background: #111111;
     }
     .product-carousel .product-add-to-cart:before,
     .product-carousel .product-add-to-cart:after  {
