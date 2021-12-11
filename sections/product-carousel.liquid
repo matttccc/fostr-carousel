@@ -24,6 +24,13 @@
       {% for product in collection.products limit: product_limit %}
       <div class="carousel-card">
         <a class="products-carousel-image" href="{{ product.url | within: collection }}">
+          {% unless product.available %}
+            <div class="product-badge sold"><span>{{ 'product.sold_out' | t }}</span></div>
+          {% else %}
+            {% if product.tags contains 'new' %}
+              <div class="product-badge new"><span>New</span></div>
+            {% endif %}
+          {% endunless %}
           <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}">
         </a>
         <a href="{{ product.url | within: collection }}">
