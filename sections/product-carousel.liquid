@@ -30,7 +30,7 @@
           <h4>{{ product.title }}</h4>
           <p>{{ product.description | truncate: 120 }}</p>
         </a>
-        <p>{% if variant.price < variant.compare_at_price %} {{ variant.compare_at_price | money }}{% endif %}</p>
+        <p>{% if variant.price <= variant.compare_at_price %} {{ variant.compare_at_price | money }}{% endif %}</p>
         <form method="post" action="/cart/add">
           <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
           <input type="submit" value="Add to bag" class="btn" />
