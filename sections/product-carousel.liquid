@@ -25,7 +25,7 @@
 
   	<div class="carousel-wrapper js-flickity" data-flickity='{{ flickity_options }}'>
     	{% for product in collection.products limit: product_limit %}
-    	<div class="carousel-card">
+    	<div class="product-card">
             <a class="product-image-wrapper" href="{{ product.url | within: collection }}">
                 {% if product.available and product.tags contains 'new' %}
                 <span class="product-badge product-badge-new">New</span>
@@ -71,7 +71,7 @@
         box-shadow: none !important;
         border: none !important;
     }
-    .product-carousel .carousel-card {
+    .product-carousel .product-card {
         width: 330px;
         margin: 0 12px;
         display: block;
@@ -85,11 +85,11 @@
         aspect-ratio: 3/4;
         background: #eeeeee;
     }
-    .product-carousel .carousel-card img {
+    .product-carousel .product-card img {
         max-width: 100%;
     }
     .product-carousel h2,
-    .product-carousel .carousel-card h4 {
+    .product-carousel .product-card h4 {
         font-family: 'Playfair Display', serif;
       	color: #111111;
     }
@@ -99,19 +99,19 @@
       	letter-spacing: -0.43px;
       	margin: 0 0 24px;
     }
-    .product-carousel .carousel-card h4 {
+    .product-carousel .product-card h4 {
       	font-size: 24px;
       	line-height: 32px;
       	letter-spacing: -0.29px;
       	margin: 24px 0 12px;
     }
-    .product-carousel .carousel-card p {
+    .product-carousel .product-card p {
       	font-size: 12px;
       	line-height: 1.5;
       	letter-spacing: 0.29px;
       	margin: 12px 0;
     }
-    .product-carousel .carousel-card h5 {
+    .product-carousel .product-card h5 {
       	font-size: 12px;
       	line-height: 1.5;
       	font-weight: 600;
@@ -132,7 +132,7 @@
             padding-left: 12px;
             padding-right: 12px;
         }
-        .product-carousel .carousel-card {
+        .product-carousel .product-card {
             width: 300px;
         	margin: 0 6px;
         }
