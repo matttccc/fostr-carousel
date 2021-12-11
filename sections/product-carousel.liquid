@@ -26,23 +26,25 @@
   	<div class="products-carousel js-flickity" data-flickity='{{ flickity_options }}'>
     	{% for product in collection.products limit: product_limit %}
     	<div class="carousel-card">
-        <a class="products-carousel-image" href="{{ product.url | within: collection }}">
-            {% if product.available and product.tags contains 'new' %}
-            <div class="product-badge new"><span>New</span></div>
-            {% endif %}
-            {% unless product.metafields.global.featured == blank %}
-            <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}"  alt="{{ product.title | escape }}">
-            {% endunless %}
-        </a>
-        <a href="{{ product.url | within: collection }}">
-        	<h4>{{ product.title }}</h4>
-        </a>
-        <p>{{ product.description | truncate: 120 }}</p>
-        <p>{{ product.price | money }} <span>{% if product.price <= product.compare_at_price %} {{ product.compare_at_price | money }}{% endif %}</span></p>
-        <form method="post" action="/cart/add">
-        	<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-        	<input type="submit" value="Add to bag" class="btn" />
-        </form>
+            <a class="products-carousel-image" href="{{ product.url | within: collection }}">
+                {% if product.available and product.tags contains 'new' %}
+                <div class="product-badge new"><span>New</span></div>
+                {% endif %}
+                {% unless product.metafields.global.featured == blank %}
+                <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}"  alt="{{ product.title | escape }}">
+                {% endunless %}
+            </a>
+            <a href="{{ product.url | within: collection }}">
+                <h4>{{ product.title }}</h4>
+            </a>
+            <p>{{ product.description | truncate: 120 }}</p>
+            <div class="price">
+                <p>{{ product.price | money }} <span>{% if product.price <= product.compare_at_price %} {{ product.compare_at_price | money }}{% endif %}</span></p>
+            </div>
+            <form method="post" action="/cart/add">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                <input type="submit" value="Add to bag" class="btn" />
+            </form>
     	</div>  
     	{% endfor %}
   	</div>
@@ -89,12 +91,18 @@
     .featured-collection-slider h2 {
       	font-size: 36px;
       	letter-spacing: -0.43px;
+      	margin: 0 0 24px;
     }
     .featured-collection-slider .carousel-card h4 {
       	font-size: 24px;
       	letter-spacing: -0.29px;
+      	margin: 24px 0 12px;
     }
     .featured-collection-slider .carousel-card p {
+      	font-size: 12px;
+      	line-height: 1.5;
+      	letter-spacing: 0.29px;
+      	margin: 12px 0;
     }
     .flickity-button:disabled {
         pointer-events: all!important;
