@@ -13,7 +13,7 @@
 }
 {%- endcapture -%}
 
-<div class="featured-collection-slider">
+<div class="product-carousel">
 	{% if section.settings.title != blank %}
 	<div class="section-header text-center">
 	    <h2>{{ section.settings.title | escape }}</h2>
@@ -23,27 +23,27 @@
   	{%- assign collection = collections[section.settings.collection] -%}
   	{%- assign product_limit = section.settings.product_count -%}
 
-  	<div class="products-carousel js-flickity" data-flickity='{{ flickity_options }}'>
+  	<div class="carousel-wrapper js-flickity" data-flickity='{{ flickity_options }}'>
     	{% for product in collection.products limit: product_limit %}
     	<div class="carousel-card">
-            <a class="products-carousel-image" href="{{ product.url | within: collection }}">
+            <a class="product-image-link" href="{{ product.url | within: collection }}">
                 {% if product.available and product.tags contains 'new' %}
                 <div class="product-badge new"><span>New</span></div>
                 {% endif %}
                 {% unless product.metafields.global.featured == blank %}
-                <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}"  alt="{{ product.title | escape }}">
+                <img class="product-image" src="{{ product.featured_image | img_url: 'master'}}"  alt="{{ product.title | escape }}">
                 {% endunless %}
             </a>
             <a href="{{ product.url | within: collection }}">
                 <h4>{{ product.title }}</h4>
             </a>
             <p>{{ product.description | truncate: 120 }}</p>
-            <div class="card-price">
+            <div class="product-price">
                 <p>{{ product.price | money }} <span>{% if product.price <= product.compare_at_price %} {{ product.compare_at_price | money }}{% endif %}</span></p>
             </div>
             <form method="post" action="/cart/add">
                 <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-                <input type="submit" value="Add to bag" class="btn" />
+                <input type="submit" value="Add to bag" class="product-add-to-cart" />
             </form>
     	</div>  
     	{% endfor %}
@@ -54,7 +54,7 @@
 
 <style>
   
-    .featured-collection-slider {
+    .product-carousel {
       	font-family: 'Open Sans', sans-serif;
         padding-left: 24px;
         padding-right: 24px;
@@ -63,49 +63,49 @@
       	width: 100%;
       	box-sizing: border-box;
     }
-    .featured-collection-slider a {
+    .product-carousel a {
       	text-decoration: none;
     }
-    .featured-collection-slider .products-carousel:focus {
+    .product-carousel .carousel-wrapper:focus {
         outline: none !important;
         box-shadow: none !important;
         border: none !important;
     }
-    .featured-collection-slider .carousel-card {
+    .product-carousel .carousel-card {
         width: 330px;
         margin: 0 12px;
         display: block;
         height: auto;
     }
-    .featured-collection-slider .flickity-prev-next-button {
+    .product-carousel .flickity-prev-next-button {
         top: 220px;
     }
-    .featured-collection-slider .carousel-card img {
+    .product-carousel .carousel-card img {
         max-width: 100%;
     }
-    .featured-collection-slider h2,
-    .featured-collection-slider .carousel-card h4 {
+    .product-carousel h2,
+    .product-carousel .carousel-card h4 {
         font-family: 'Playfair Display', serif;
     }
-    .featured-collection-slider h2 {
+    .product-carousel h2 {
       	font-size: 36px;
       	line-height: 48px;
       	letter-spacing: -0.43px;
       	margin: 0 0 24px;
     }
-    .featured-collection-slider .carousel-card h4 {
+    .product-carousel .carousel-card h4 {
       	font-size: 24px;
       	line-height: 32px;
       	letter-spacing: -0.29px;
       	margin: 24px 0 12px;
     }
-    .featured-collection-slider .carousel-card p {
+    .product-carousel .carousel-card p {
       	font-size: 12px;
       	line-height: 1.5;
       	letter-spacing: 0.29px;
       	margin: 12px 0;
     }
-    .featured-collection-slider .carousel-card .card-price {
+    .product-carousel .carousel-card .product-price {
       	margin: 0 0 12px;
     }
     .flickity-button:disabled {
@@ -119,23 +119,19 @@
 
 
     @media screen and (max-width: 920px) {
-        .featured-collection-slider {
-        }
-        .featured-collection-slider .carousel-card {
-        }
     }
  
 
     @media screen and (max-width: 767px) {
-        .featured-collection-slider {
+        .product-carousel {
             padding-left: 12px;
             padding-right: 12px;
         }
-        .featured-collection-slider .carousel-card {
+        .product-carousel .carousel-card {
             width: 300px;
         	margin: 0 6px;
         }
-        .featured-collection-slider .flickity-prev-next-button {
+        .product-carousel .flickity-prev-next-button {
             top: 200px;
         }
     }
