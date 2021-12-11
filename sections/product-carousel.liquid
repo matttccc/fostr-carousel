@@ -41,7 +41,7 @@
             <h5 class="product-price">{{ product.price | money }}<span>{% if product.price <= product.compare_at_price %} {{ product.compare_at_price | money }}{% endif %}</span></h5>
             <form method="post" action="/cart/add">
                 <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-                <button type="submit" value="Add to Bag" class="product-add-to-cart" />
+              <button type="submit" class="product-add-to-cart">Add to Bag</button>
             </form>
     	</div>  
     	{% endfor %}
