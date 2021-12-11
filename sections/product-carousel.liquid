@@ -28,7 +28,7 @@
     	<div class="carousel-card">
             <a class="product-image-wrapper" href="{{ product.url | within: collection }}">
                 {% if product.available and product.tags contains 'new' %}
-                <div class="product-badge new"><span>New</span></div>
+                <span class="product-badge product-badge-new">New</span>
                 {% endif %}
                 {% unless product.metafields.global.featured == blank %}
                 <img class="product-image" src="{{ product.featured_image | img_url: 'master'}}"  alt="{{ product.title | escape }}">
@@ -61,6 +61,7 @@
         max-width: 1440px;
       	width: 100%;
       	box-sizing: border-box;
+      	color: #4D4D4D;
     }
     .product-carousel a {
       	text-decoration: none;
@@ -90,6 +91,7 @@
     .product-carousel h2,
     .product-carousel .carousel-card h4 {
         font-family: 'Playfair Display', serif;
+      	color: #111111;
     }
     .product-carousel h2 {
       	font-size: 36px;
